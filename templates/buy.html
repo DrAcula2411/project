@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <form action="/buy" method="post">
+        <div>
+            <h2>Buy</h2>
+            <p>Don't have an account? <a href="/register">Register</a></p>
+            <p>Select the product you want to buy and drop a message on Instagram @scalpelsandhooks with your username.</p>
+        </div>
+        <div>
+            <select name="category" onchange="updateSubcategory()">
+                <option selected disabled>Category</option>
+                <option value="amigurumi">Amigurumi</option>
+                <option value="decor">Decor</option>
+            </select>
+            <select name="product" disabled>
+            </select>
+        </div>
+        <div>
+            <input type="number" name="quantity" placeholder="Quantity">
+        <div>
+            <input type="submit" value="Buy">
+        </div>
+    </form>
+    <script>
+        function updateSubcategory() {
+            const category = document.querySelector('select[name="category"]').value;
+            const subcategory = document.querySelector('select[name="product"]');
+            subcategory.innerHTML = '<option selected disabled>Product</option>';
+            if (category === 'amigurumi') {
+                const options = ['Among Us', 'Peace was never an option Duck', 'Bunny', 'Cat', 'Dog Bone', 'Fish', 'Frog', 'Ghost', 'Sad Hamster', 'Hedgehog', 'Jellyfish', 'Kitty', 'Koala', 'Mickey Mouse', 'Octopus', 'Owl', 'Panda', 'Penguin', 'Pokeball', 'Squirtle', 'Umbreon', 'Pokeball with Pokemon', 'Winnie the Pooh', 'Sheep', 'Snowman', 'Starfish', 'Large Teddy Bear', 'Small Teddy Bear: Set of 2', 'Tortoise', 'Whale'];
+                options.forEach(option => {
+                    const element = document.createElement('option');
+                    element.value = option;
+                    element.text = option;
+                    subcategory.appendChild(element);
+                });
+            } else if (category === 'decor') {
+                const options = ['Table Mat: Shell Design', 'Table Mat: Star Design', 'Table Mat: Rainbow', 'Cat Bookmark', 'Bouquet Coaster: Set of 6', 'Cushion Cover: Flower', 'Cushion Cover: Granny Square'];
+                options.forEach(option => {
+                    const element = document.createElement('option');
+                    element.value = option;
+                    element.text = option;
+                    subcategory.appendChild(element);
+                });
+            }
+            subcategory.disabled = false;
+        }
+    </script>
+{% endblock %}

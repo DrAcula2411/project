@@ -1,0 +1,90 @@
+.image-container {
+    position: relative;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.hover-text {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100px;
+    color: #ffffff;
+    background-color: #000000;
+    border: 1px solid #ccc;
+    padding: 5px;
+    z-index: 10;
+    white-space: nowrap;
+}
+
+p {
+    font-family: "Papyrus", fantasy;
+    text-align: center;
+}
+
+div {
+    font-family: "Papyrus", fantasy;
+    text-align: center;
+}
+
+h1 {
+    font-family: "Lucida Handwriting", cursive;
+    text-align: center;
+}
+
+h2 {
+    font-family: "Lucida Handwriting", cursive;
+    text-align: center;
+}
+
+table {
+    font-family: "Papyrus", fantasy;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Ensures it stays even when scrolling */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("/static/images/background.jpg") no-repeat center center/cover;
+    opacity: 0.3; /* Adjust transparency (0 = fully transparent, 1 = fully visible) */
+    z-index: -1; /* Keeps it in the background */
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
+}
+
+head {
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.logo {
+    width: 50px;
+    margin-right: 10px;
+}
